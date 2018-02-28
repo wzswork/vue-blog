@@ -4,6 +4,9 @@
     <h2>Essential Links</h2>
     <ul>
       <li>
+        haha
+      </li>
+      <li>
         <a
           href="https://vuejs.org"
           target="_blank"
