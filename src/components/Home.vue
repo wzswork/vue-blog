@@ -16,12 +16,30 @@
           <digest></digest>
         </div>
         <div class="content-right">
-          <quick-labels></quick-labels>
+          <sidebar></sidebar>
         </div>
       </div>
     </div>
   </div>
 </template>
+<script>
+import sidebar from './Sidebar'
+import mutationType from '../config/mutationType'
+export default {
+  created () {
+    var _this = this;
+    this.axios.get('/api/labels')
+    .then(function(res){
+      console.log(res);
+      // _this.store.commit(mutationType.setLabels, res)
+    })
+  },
+  components:{
+    sidebar
+  }
+}
+</script>
+
 <style lang="scss" scoped>
   .back{
     height: 100%;
