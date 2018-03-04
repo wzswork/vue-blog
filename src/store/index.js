@@ -9,7 +9,7 @@ const state = {
   curLabel:'javascript',
   curPage:1,
   loginStatus: false,
-  labels:[]
+  labels:[{id:0, name:"..."}]
 }
 
 export default new Vuex.Store({

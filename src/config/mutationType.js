@@ -1,6 +1,6 @@
 export default {
-  changePage: Symbol('changePage'),
-  changeLabel: Symbol('changeLabel'),
-  login: Symbol('login'),
-  setLabels: Symbol('setLabels')
+  changePage: 'changePage',
+  changeLabel: 'changeLabel',
+  login: 'login',
+  setLabels: 'setLabels'
 }

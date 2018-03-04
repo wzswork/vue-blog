@@ -8,7 +8,12 @@ import axios from 'axios'
 
 import './public/css/base.scss'
 
-axios.defaults.baseURL = 'https://119.23.202.132'
+// if(process.env.NODE_ENV == 'production'){
+//   axios.defaults.baseURL = 'https://119.23.202.132:7000'
+// }else{
+//   axios.defaults.baseURL = 'localhost:7000'
+// }
+
 
 Vue.prototype.axios = axios
 

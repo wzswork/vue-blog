@@ -13,7 +13,7 @@
       </div>
       <div class="content fix">
         <div class="content-left">
-          <digest></digest>
+          <!-- <digest></digest> -->
         </div>
         <div class="content-right">
           <sidebar></sidebar>
@@ -30,8 +30,9 @@ export default {
     var _this = this;
     this.axios.get('/api/labels')
     .then(function(res){
+      console.log(1)
       console.log(res);
-      // _this.store.commit(mutationType.setLabels, res)
+      _this.$store.commit(mutationType.setLabels, res.data)
     })
   },
   components:{
