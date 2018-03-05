@@ -2,7 +2,7 @@
   <div class="sidebar">
     <ul>
       <li v-for="item in labels" :key="item.id">
-        item.name
+        {{item.name}}
       </li>
     </ul>
   </div>
@@ -15,8 +15,25 @@ export default {
     }
   },
   computed: {
-    labels: state => state.labels,
+    labels: function(){
+      return this.$store.state.labels
+    } 
   }
 }
 </script>
+<style lang="scss" scoped>
+  .sidebar{
+    padding: 30px 16px;
+
+    li{
+      padding: 8px 16px;
+      color: #555;
+      cursor: pointer;
+      &:hover{
+        color: burlywood
+      }
+    }
+  }
+</style>
+
 

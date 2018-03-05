@@ -24,7 +24,6 @@
 </template>
 <script>
 import sidebar from './Sidebar'
-import mutationType from '../config/mutationType'
 export default {
   created () {
     var _this = this;
@@ -32,11 +31,11 @@ export default {
     .then(function(res){
       console.log(1)
       console.log(res);
-      _this.$store.commit(mutationType.setLabels, res.data)
+      _this.$store.commit("setLabels", res.data)
     })
   },
   components:{
-    sidebar
+    sidebar,
   }
 }
 </script>
@@ -88,23 +87,27 @@ export default {
       background-color: #888;
       opacity: .3;
     }
-    .content{
-      margin-top: 15px;
-      .content-left{
-        float: left;
-        width: 70%;
-        height: 100%;
-        background: rgba($color: #fff, $alpha: .7)
-      }
-      .content-right{
-        float: right;
-        width: 30%;
-      }
-      @media screen and (max-width: 240px) {
-        .content-left, .content-right{
-          float: none;
-          width: 100%;
-        }
+  }
+  .content{
+    margin-top: 10px;
+    width: 100%;
+    .content-left{
+      float: left;
+      width: 80%;
+      height: 100%;
+      background: rgba($color: #fff, $alpha: .7);
+      border-radius: 8px 0 0 8px;
+    }
+    .content-right{
+      float: right;
+      width: 20%;
+      background: rgba($color: #fff, $alpha: .7);
+      border-radius: 0 8px 8px 0;
+    }
+    @media screen and (max-width: 240px) {
+      .content-left, .content-right{
+        float: none;
+        width: 100%;
       }
     }
   }

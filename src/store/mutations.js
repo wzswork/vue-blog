@@ -1,16 +1,14 @@
-import types from '../config/mutationType'
-
 export default {
-  [types.login](state, isAdmin){
+  login(state, isAdmin){
     state.loginStatus = isAdmin;
   },
-  [types.changePage](state, curPage){
+  changePage(state, curPage){
     state.curPage = curPage;
   },
-  [types.changeLabel](state, curLabel){
+  changeLabel(state, curLabel){
     state.curLabel = curLabel;
   },
-  [types.setLabels](state, data){
+  setLabels(state, data){
     state.labels = data;
   }
 }
