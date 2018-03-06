@@ -3,6 +3,7 @@
     <div class="main">
       <h1 class="head">
         石头楼
+        <span :class="['operation',loginStatus?'add':'login']" @click="operate">{{operation}}</span>
       </h1>
       <div class="menu fix">
         <ul>
@@ -34,6 +35,15 @@ export default {
       _this.$store.commit("setLabels", res.data)
     })
   },
+  computed:{
+    loginStatus: function(){return this.$store.state.loginStatus},
+    operation: function(){return this.loginStatus?"写文章":"登录"}
+  },
+  methods:{
+    operate: function(e){
+      
+    }
+  },
   components:{
     sidebar,
   }
@@ -55,8 +65,30 @@ export default {
     }
   }
   .head{
+    position: relative;
     margin: 0;
     line-height: 100px;
+    .operation{
+      position: absolute;
+      top: 50px;
+      right: 20px;
+      display: block;
+      height: 20px;
+      line-height: 20px;
+      padding-left: 24px;
+      background: {
+        size: 20px 20px;
+        repeat: no-repeat;
+      }
+      font-size: 14px;
+      cursor: pointer;
+      &.login{
+        background-image: url('../images/home/login.png');
+      }
+      &.add{
+        background-image: url('../images/home/edit.png');
+      }
+    }
   }
   .menu{
     background: rgba($color: #fff, $alpha: .6);
