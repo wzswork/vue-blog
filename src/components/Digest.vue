@@ -1,6 +1,10 @@
 <template>
   <ul>
-      <li></li>
+      <li v-for="item in digests" :key="item.id">
+        <h3>{{blogTitle}}</h3>
+        <p>{{blogDigest}}</p>
+        <span>{{creatTime}}</span>
+      </li>
   </ul>
 </template>
 <style lang="scss" scoped>
@@ -9,8 +13,10 @@
 <script>
   import mapState from 'vuex'
   export default {
-    data: {
-
+    data(){
+      return {
+        digests:[{blogTitle:"...", blogDigest:"...", creatTime:"...", id:"-1"}]
+      }
     },
     computed: {
       ...mapState({
@@ -26,6 +32,7 @@
           }
         }).then(function(res){
           console.log(res);
+
         })
       }
     }

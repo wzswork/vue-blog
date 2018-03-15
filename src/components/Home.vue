@@ -1,5 +1,6 @@
 <template>
   <div class="back">
+    <login v-if="showLogin"></login>
     <div class="main">
       <h1 class="head">
         石头楼
@@ -25,6 +26,8 @@
 </template>
 <script>
 import sidebar from './Sidebar'
+import login from './Login'
+
 export default {
   created () {
     var _this = this;
@@ -35,17 +38,34 @@ export default {
       _this.$store.commit("setLabels", res.data)
     })
   },
+  data () {
+    return {
+      showLogin: false
+    }
+  },
   computed:{
     loginStatus: function(){return this.$store.state.loginStatus},
     operation: function(){return this.loginStatus?"写文章":"登录"}
   },
+  watch:{
+    loginStatus: function(newLoginStatus, oldLoginStatus){
+      if(!oldLoginStatus && newLoginStatus){
+        this.showLogin = false
+      }
+    }
+  },
   methods:{
     operate: function(e){
-      
+      if(!this.loginStatus){
+        this.showLogin = true;
+      }else{
+        this.$router.push('/editor');
+      }
     }
   },
   components:{
     sidebar,
+    login
   }
 }
 </script>
@@ -53,7 +73,6 @@ export default {
 <style lang="scss" scoped>
   .back{
     height: 100%;
-    background: url(../images/home/back-1.png);
   }
   .main{
     margin: 0 auto;

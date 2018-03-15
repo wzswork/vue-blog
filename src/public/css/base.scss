@@ -11,6 +11,7 @@ p {
 html,
 body {
     height: 100%;
+    background: url(../../images/home/back-1.png);
 }
 
 ul {
@@ -22,7 +23,7 @@ ul {
 
 .fix {
     *zoom: 1;
-    ::after{
+    &:after{
       display: table;
       content: '';
       clear: both;
