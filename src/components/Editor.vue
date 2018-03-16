@@ -1,12 +1,13 @@
 <template>
+<div>
+  <div class="title">
+    <ul>
+      <li><label for="title"></label> <input type="text" id="title" v-model="blogTitle"></li>
+      <li></li>
+      <li><label for="digest"></label><textarea id="digest" cols="30" rows="10"></textarea></li>
+    </ul>
+  </div>
   <div class="editor">
-    <div class="title">
-      <ul>
-        <li><label for="title"></label> <input type="text" id="title" v-model="blogTitle"></li>
-        <li></li>
-        <li><label for="digest"></label><textarea id="digest" cols="30" rows="10"></textarea></li>
-      </ul>
-    </div>
     <div class="edit">
       <textarea id="editarea" :value="input" @input="update"></textarea>
     </div>
@@ -14,14 +15,16 @@
       <div id="prevarea" v-html="compiledMarkdown"></div>
     </div>
   </div>
+</div>
 </template>
 <style lang="scss" scoped>
   .editor{
     margin: 0 auto;
     max-width: 1280px;
     width: 100%;
+    display: flex;
+    justify-content:space-between;
     .edit{
-      float: left;
       width: 50%;
       height: 100%;
       #editarea{
@@ -30,7 +33,6 @@
       }
     }
     .preview{
-      float: right;
       width: 50%;
       height: 100%;
       background: #fff;

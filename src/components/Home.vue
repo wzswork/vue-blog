@@ -52,6 +52,7 @@ export default {
       if(!oldLoginStatus && newLoginStatus){
         this.showLogin = false
       }
+      return newLoginStatus
     }
   },
   methods:{
