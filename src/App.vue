@@ -12,6 +12,9 @@ export default {
 </script>
 
 <style>
+body{
+  background: url(./images/home/back-1.png);
+}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

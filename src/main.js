@@ -6,7 +6,8 @@ import router from './router'
 import store from './store/index'
 import axios from 'axios'
 
-import './public/css/base.scss'
+import './public/css/reset.css'
+import './public/css/style.css'
 
 if(process.env.NODE_ENV == 'production'){
   axios.defaults.baseURL = 'https://119.23.202.132:7000'
@@ -14,7 +15,6 @@ if(process.env.NODE_ENV == 'production'){
 
 
 Vue.prototype.axios = axios
-
 
 
 Vue.config.productionTip = false

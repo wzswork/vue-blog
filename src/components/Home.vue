@@ -1,32 +1,32 @@
 <template>
   <div class="back">
-    <login v-if="showLogin"></login>
+    <login-window v-if="showLogin"></login-window>
     <div class="main">
       <h1 class="head">
         石头楼
         <span :class="['operation',loginStatus?'add':'login']" @click="operate">{{operation}}</span>
       </h1>
-      <div class="menu fix">
+      <div class="menu clearfix">
         <ul>
           <li class="active">首页</li>
           <li>文章</li>
           <li>小demo</li>
         </ul>
       </div>
-      <div class="content fix">
+      <div class="content clearfix">
         <div class="content-left">
           <!-- <digest></digest> -->
         </div>
         <div class="content-right">
-          <sidebar></sidebar>
+          <side-bar></side-bar>
         </div>
       </div>
     </div>
   </div>
 </template>
 <script>
-import sidebar from './Sidebar'
-import login from './Login'
+import sideBar from './SideBar'
+import loginWindow from './LoginWindow'
 
 export default {
   created () {
@@ -65,8 +65,8 @@ export default {
     }
   },
   components:{
-    sidebar,
-    login
+    sideBar,
+    loginWindow
   }
 }
 </script>
