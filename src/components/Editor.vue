@@ -2,9 +2,14 @@
 <div class="container markdown">
   <div class="title">
     <h2>文章编辑</h2>
+    <div class="option clearfix">
+      <router-link class="index-router" to="/"><img src="../images/home/index.png" width="30" alt=""></router-link>
+      <button>发布</button>
+    </div>
+    <hr>
     <ul>
       <li><label for="title">标题：</label> <input type="text" id="title" v-model="blogTitle"></li>
-      <li><label>标签：</label><combo-selector></combo-selector></li>
+      <li><label>标签：</label><combo-selector :listData="labels" :selectedData.sync="labels[0]"></combo-selector></li>
       <li><label for="digest">摘要：</label><textarea id="digest" v-model="digest"></textarea></li>
     </ul>
   </div>
@@ -43,6 +48,23 @@
       text-align: center;
     }
 
+    .option{
+      .index-router{
+        float: left;
+      }
+
+      button{
+        float: right;
+        width: 60px;
+        line-height: 28px;
+        background-color: rgb(226, 166, 110);
+        border: 1px solid #e7e7e7;
+        &:hover{
+          background-color: rgb(218, 142, 72)
+        }
+      }
+    }
+
     li{
       padding-left: 61px;
       margin-bottom: 20px;
@@ -59,7 +81,7 @@
 
     #title{
       width: 500px;
-      padding: 4px 16px;
+      padding: 6px 12px;
       font-size: 14px;
       border-radius: 4px;
       border: 1px solid #e7e7e7;
@@ -70,7 +92,7 @@
       height: 100px;
       border: 1px solid #e7e7e7;
       border-radius: 4px;
-      padding: 8px 16px;
+      padding: 8px 12px;
       font-size: 14px;
     }
   }
@@ -137,7 +159,10 @@ export default {
   computed: {
     compiledMarkdown: function () {
       return marked(this.input, { sanitize: true })
-    }
+    },
+    labels: function(){
+      return this.$store.state.labels
+    } 
   },
   methods: {
     update: _.debounce(function (e) {

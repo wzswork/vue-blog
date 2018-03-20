@@ -30,13 +30,7 @@ import loginWindow from './LoginWindow'
 
 export default {
   created () {
-    var _this = this;
-    this.axios.get('/api/labels')
-    .then(function(res){
-      console.log(1)
-      console.log(res);
-      _this.$store.commit("setLabels", res.data)
-    })
+    
   },
   data () {
     return {
@@ -88,6 +82,7 @@ export default {
     position: relative;
     margin: 0;
     line-height: 100px;
+    font-size: 36px;
     .operation{
       position: absolute;
       top: 50px;

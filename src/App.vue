@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" @click="rollUp()">
     <!-- <img src="./assets/logo.png"> -->
     <router-view/>
   </div>
@@ -7,7 +7,21 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  created(){
+    var _this = this;
+    this.axios.get('/api/labels')
+    .then(function(res){
+      console.log(1)
+      console.log(res);
+      _this.$store.commit("setLabels", res.data)
+    })
+  },
+  methods:{
+    rollUp:function(){
+      this.$bus.emit('rollup')
+    }
+  }
 }
 </script>
 
